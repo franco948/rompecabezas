@@ -57,3 +57,26 @@ li::before {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* MIS ESTILOS */
+
+.imagen-objetivo {
+  width: 250px;
+}
+
+#juego {
+  width: 600px;
+  height: 600px;
+}
+
+.pieza {
+  /* display: inline-block; */
+  float: left;  
+  width: 33%; /* tiene 9 tres al final */
+  height: 33%; /* tiene 9 tres al final */
+  border: 1px solid #3f6348;
+}
+
+.pieza img {
+  width: 100%;
+}
