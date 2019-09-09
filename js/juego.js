@@ -1,5 +1,17 @@
+/* MIS FUNCIONES */
+
+function agregarMovimiento(movimiento)
+{
+  movimientos.push(movimiento);
+  actualizarUltimoMovimiento(movimiento);
+}
+
 // Arreglo que contiene las intrucciones del juego 
-var instrucciones = [];
+var instrucciones = [
+  'Utilizá las flechas del teclado para mover las piezas',
+  'Ordená las piezas hasta que obtengas la imagen que se muestra abajo'
+];
+
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
 
@@ -22,6 +34,10 @@ Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
 Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
     //COMPLETAR
+    for (var i = 0; i < instrucciones.length; i++)
+    {      
+      mostrarInstruccionEnLista(instrucciones[i], 'lista-instrucciones');
+    }
 }
 
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
@@ -31,11 +47,27 @@ y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
 function chequearSiGano() {
     //COMPLETAR
+
+    var counter = 1;
+
+    for (var x = 0; x < grilla.length; x++)
+    {
+      for (var y = 0; y < grilla.length; y++)
+      {
+        if (grilla[x][y] !== counter++)                
+        {
+          return false;
+        }
+      }
+    }
+
+    return true;
 }
 
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
     //COMPLETAR
+    alert('Felicidades! Has conseguido armar el rompecabezas');
 }
 
 /* Función que intercambia dos posiciones en la grilla.
@@ -50,17 +82,23 @@ Se te ocurre cómo solucionar esto con una variable temporal?
 */
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
     //COMPLETAR
+    var temp = grilla[filaPos1][columnaPos1];
+    grilla[filaPos1][columnaPos1] = grilla[filaPos2][columnaPos2];
+    grilla[filaPos2][columnaPos2] = temp;
 }
 
 // Actualiza la posición de la pieza vacía
 function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
     //COMPLETAR
+    filaVacia = nuevaFila;
+    columnaVacia = nuevaColumna;
 }
 
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
     //COMPLETAR
+    return (fila >= 0 && fila < grilla.length) && (columna >= 0 && columna < grilla.length);
 }
 
 /* Movimiento de fichas, en este caso la que se mueve es la blanca intercambiando su posición con otro elemento.
@@ -68,27 +106,39 @@ Las direcciones están dadas por números que representa: arriba (38), abajo (40
 function moverEnDireccion(direccion) {
   var nuevaFilaPiezaVacia;
   var nuevaColumnaPiezaVacia;
+  
+  var movimiento;
 
   // Mueve pieza hacia la abajo, reemplazandola con la blanca
   if (direccion === codigosDireccion.ABAJO) {
-    nuevaFilaPiezaVacia = filaVacia - 1;
+    nuevaFilaPiezaVacia = filaVacia + 1;
     nuevaColumnaPiezaVacia = columnaVacia;
+
+    movimiento = codigosDireccion.ABAJO;
   }
     
   // Mueve pieza hacia arriba, reemplazandola con la blanca
   else if (direccion === codigosDireccion.ARRIBA) {
-    nuevaFilaPiezaVacia = filaVacia + 1;
+    nuevaFilaPiezaVacia = filaVacia - 1;
     nuevaColumnaPiezaVacia = columnaVacia;
+
+    movimiento = codigosDireccion.ARRIBA;
   }
     
   // Mueve pieza hacia la derecha, reemplazandola con la blanca
   else if (direccion === codigosDireccion.DERECHA) {
     //COMPLETAR
+    nuevaFilaPiezaVacia = filaVacia;
+    nuevaColumnaPiezaVacia = columnaVacia + 1;    
+    movimiento = codigosDireccion.DERECHA;
   }
     
   // Mueve pieza hacia la izquierda, reemplazandola con la blanca
   else if (direccion === codigosDireccion.IZQUIERDA) {
     // COMPLETAR
+    nuevaFilaPiezaVacia = filaVacia;
+    nuevaColumnaPiezaVacia = columnaVacia - 1;
+    movimiento = codigosDireccion.IZQUIERDA;
   }
 
   /* A continuación se chequea si la nueva posición es válida, si lo es, se intercambia. 
@@ -100,7 +150,7 @@ function moverEnDireccion(direccion) {
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
 
   //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
-
+        agregarMovimiento(movimiento);
     }
 }
 
