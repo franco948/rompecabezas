@@ -67,7 +67,7 @@ function chequearSiGano() {
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
     //COMPLETAR
-    alert('Felicidades! Has conseguido armar el rompecabezas');
+    swal('¡Felicidades!', 'Has conseguido armar el rompecabezas', 'success');
 }
 
 /* Función que intercambia dos posiciones en la grilla.

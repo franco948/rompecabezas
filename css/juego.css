@@ -60,22 +60,66 @@ li::before {
 
 /* MIS ESTILOS */
 
-.imagen-objetivo {
-  width: 250px;
+.container {
+  display: flex;
+  flex-direction: row;
 }
+
+.imagen-objetivo {
+  margin: 20px;
+  width: 160px;
+}
+
 #juego {
-  width: 600px;
-  height: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 540px;
+  height: 540px;
 }
 
 .pieza {
-  /* display: inline-block; */
-  float: left;  
-  width: 33%; /* tiene 9 tres al final */
-  height: 33%; /* tiene 9 tres al final */
+  width: 178px;
+  height: 178px;
   border: 1px solid #3f6348;
 }
 
 .pieza img {
   width: 100%;
+}
+
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  background-color: rgb(40,40,40);
+  height: 40px;
+}
+
+#titulo {
+  color: white;
+  background-color: #E84A5F;
+  text-align: center;  
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+#titulo h2 {
+  font-size: 20px;
+  padding: 5px;
+  letter-spacing: 5px;
+}
+
+.titulo {
+  color: #E84A5F;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+#lista-instrucciones {
+  font-size: 12px;
 }
