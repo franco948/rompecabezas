@@ -111,7 +111,7 @@ function moverEnDireccion(direccion) {
 
   // Mueve pieza hacia la abajo, reemplazandola con la blanca
   if (direccion === codigosDireccion.ABAJO) {
-    nuevaFilaPiezaVacia = filaVacia + 1;
+    nuevaFilaPiezaVacia = filaVacia - 1;
     nuevaColumnaPiezaVacia = columnaVacia;
 
     movimiento = codigosDireccion.ABAJO;
@@ -119,7 +119,7 @@ function moverEnDireccion(direccion) {
     
   // Mueve pieza hacia arriba, reemplazandola con la blanca
   else if (direccion === codigosDireccion.ARRIBA) {
-    nuevaFilaPiezaVacia = filaVacia - 1;
+    nuevaFilaPiezaVacia = filaVacia + 1;
     nuevaColumnaPiezaVacia = columnaVacia;
 
     movimiento = codigosDireccion.ARRIBA;
@@ -129,7 +129,7 @@ function moverEnDireccion(direccion) {
   else if (direccion === codigosDireccion.DERECHA) {
     //COMPLETAR
     nuevaFilaPiezaVacia = filaVacia;
-    nuevaColumnaPiezaVacia = columnaVacia + 1;    
+    nuevaColumnaPiezaVacia = columnaVacia - 1;    
     movimiento = codigosDireccion.DERECHA;
   }
     
@@ -137,7 +137,7 @@ function moverEnDireccion(direccion) {
   else if (direccion === codigosDireccion.IZQUIERDA) {
     // COMPLETAR
     nuevaFilaPiezaVacia = filaVacia;
-    nuevaColumnaPiezaVacia = columnaVacia - 1;
+    nuevaColumnaPiezaVacia = columnaVacia + 1;
     movimiento = codigosDireccion.IZQUIERDA;
   }
 
